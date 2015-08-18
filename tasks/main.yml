@@ -1,0 +1,22 @@
+---
+- name: Get Instance ID
+  shell: ec2metadata | grep instance-id | cut -f 2 -d ' ' | tr -d -
+  register: instance_id
+  tags:
+    - hostname
+
+- name: Configure | hostname
+  hostname:
+    name: "{{ system_role }}-{{ instance_id.stdout }}-{{ project }}-{{ environment_tier }}"
+  tags:
+    - hostname
+
+- name: Configure | hostname in /etc/hosts
+  lineinfile:
+    state: present
+    dest: /etc/hosts
+    regexp: "{{ system_role }}-{{ instance_id.stdout }}-{{ project }}-{{ environment_tier }}$"
+    line: "127.0.0.1 {{ system_role }}-{{ instance_id.stdout }}-{{ project }}-{{ environment_tier }}"
+  tags:
+    - improves-performance
+    - hostname

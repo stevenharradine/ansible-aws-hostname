@@ -7,3 +7,4 @@
     # name of role to test
     - role: ansible-aws-hostname
       system_role: application
+      project: travis

@@ -2,7 +2,7 @@
 
 Sets the hostname of a box
 
-[![licence](https://img.shields.io/badge/licence-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![licence](https://img.shields.io/badge/licence-MIT-blue.svg)](https://tldrlegal.com/license/mit-license)
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 Tunables
@@ -18,10 +18,6 @@ Example Playbook
     - hosts: servers
       roles:
          - role: telusdigital.aws-hostname
-
-License
--------
-[MIT](https://tldrlegal.com/license/mit-license)
 
 Contributors
 ------------
